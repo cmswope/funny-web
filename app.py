@@ -1,3 +1,4 @@
+import flask
 from flask import Flask
 import random
 
@@ -11,4 +12,5 @@ jokes = [
 @app.get("/")
 def tell_a_joke():
     joke = random.choice(jokes)
-    return f"<p>{joke}</p>"
+    return flask.render_template('joke.html', joke_text=joke)
+    #return f"<p>{joke}</p>"
